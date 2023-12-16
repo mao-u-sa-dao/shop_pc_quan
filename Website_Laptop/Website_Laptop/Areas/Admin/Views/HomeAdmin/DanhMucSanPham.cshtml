@@ -1,0 +1,54 @@
+﻿@using Website_Laptop.Models;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<Website_Laptop.Models.PcDanhMucSp>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "DanhMucSanPham";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh Muc San Pham</h2>
+<p>
+    <a asp-action="ThemSanPhamMoi">Create New</a>
+</p>
+<p>@TempData["Message"]</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên Sản Phẩm
+            </th>
+            <th>
+                Cân Nặng
+            </th>
+            <th>
+                Giá Sản Phẩm
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CanNang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaSp)
+                </td>
+                <td>
+                    <a asp-action="SuaSanPham" asp-route-maSanPham="@item.MaSp">Edit</a> |
+                    <a asp-action="ThongTinSanPham" asp-route-maSanPham="@item.MaSp">Details</a> |
+                    <a asp-action="XoaSanPham" asp-route-maSanPham="@item.MaSp">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="product__pagination">
+    @Html.PagedListPager(Model, page => Url.Action("DanhMucSanPham", new { page = page }))
+</div>

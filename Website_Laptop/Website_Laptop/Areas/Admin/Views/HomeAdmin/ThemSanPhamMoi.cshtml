@@ -1,0 +1,128 @@
+﻿@{
+    ViewData["Title"] = "ThemSanPhamMoi";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model Website_Laptop.Models.PcDanhMucSp;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!-- Nội dung trang -->
+
+<h2>Edit Product</h2>
+<p id="consol"></p>
+
+
+    <div class="row">
+        <div class="col-md-4">
+        <form asp-action="ThemSanPhamMoi" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="MaSp" class="control-label"></label>
+                    <input asp-for="MaSp" id="MaSp" class="form-control" />
+                    <span asp-validation-for="MaSp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TenSp" class="control-label"></label>
+                    <input asp-for="TenSp" id="TenSp" class="form-control" />
+                    <span asp-validation-for="TenSp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CanNang" class="control-label"></label>
+                    <input asp-for="CanNang" id="CanNang" class="form-control" />
+                    <span asp-validation-for="CanNang" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaChatLieu" class="control-label"></label>
+                    <select asp-for="MaChatLieu" id="MaChatLieu" class="form-control" asp-items="ViewBag.MaChatLieu"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaQuocGiaSx" class="control-label"></label>
+                    <select asp-for="MaQuocGiaSx" id="MaQuocGia" class="form-control" asp-items="ViewBag.MaQuocGiaSx"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ThoiGianBaoHanh" class="control-label"></label>
+                    <input asp-for="ThoiGianBaoHanh" id="ThoiGianBaoHanh" class="form-control" />
+                    <span asp-validation-for="ThoiGianBaoHanh" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="GioiThieuSp" class="control-label"></label>
+                    <input asp-for="GioiThieuSp" id="GioiThieuSp" class="form-control" />
+                    <span asp-validation-for="GioiThieuSp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaLoai" class="control-label"></label>
+                    <select asp-for="MaLoai" id="MaLoai" class="form-control" asp-items="ViewBag.MaLoai"></select>
+                </div>
+                <div class="form-group">
+                <label for="AnhDaiDien">Chọn hình ảnh:</label>
+                <input type="file" id="AnhDaiDien" name="AnhDaiDien" onchange="addProduct()" class="form-control-file" />
+                <div id="fileNameDisplay"></div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="GiaSp" class="control-label"></label>
+                    <input asp-for="GiaSp" id="GiaSp" class="form-control" />
+                    <span asp-validation-for="GiaSp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                <button type="submit" onclick="addProduct()" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+   
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+        function addProduct() {
+        //Lấy Tên đường dẫn file
+        var input = document.getElementById('AnhDaiDien');
+        var fileNameDisplay = document.getElementById('fileNameDisplay');
+        var fileName = '';
+        // kiểm tra xem đã chọn file nào chưa
+        if (input.files.length > 0) {
+        // Lấy tên đầy đủ của tệp tin đầu tiên
+            fileName = input.files[0].name;
+            fileNameDisplay.innerText = 'Tên file: ' + fileName;
+        } else {
+            fileNameDisplay.innerText = 'Không có file được chọn';
+        }
+        // Lấy dữ liệu từ các thẻ input
+        var maSp = document.getElementById('MaSp').value;
+        var tenSp = document.getElementById('TenSp').value;
+        var canNang = document.getElementById('CanNang').value;
+        var maChatLieu = document.getElementById('MaChatLieu').value;
+        var maQuocGiaSx = document.getElementById('MaQuocGia').value;
+        var thoiGianBaoHanh = document.getElementById('ThoiGianBaoHanh').value;
+        var gioiThieuSp = document.getElementById('GioiThieuSp').value;
+        var maLoai = document.getElementById('MaLoai').value;
+        var anhDaiDien = fileName;
+        var giaSp = document.getElementById('GiaSp').value;
+
+        // truyền dữ liệu vào
+        axios.post('/api/AdminProductApi', {
+                maSp: maSp,
+                tenSp: tenSp,
+                canNang: canNang,
+                maChatLieu: maChatLieu,
+                maQuocGiaSx: maQuocGiaSx,
+                thoiGianBaoHanh: thoiGianBaoHanh,
+                gioiThieuSp: gioiThieuSp,
+                maLoai: maLoai,
+                anhDaiDien: anhDaiDien,
+                giaSp: giaSp,
+
+            })
+            .then(response => {
+
+                console.log('Product added successfully');
+
+            })
+            .catch(error => {
+                console.error('Error adding product:', error.response.data);
+            });
+        }
+
+        
+    </script>
+

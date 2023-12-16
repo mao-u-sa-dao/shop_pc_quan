@@ -1,0 +1,123 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Website_Laptop
+build_property.RootNamespace = Website_Laptop
+build_property.ProjectDir = C:\Do_an\DoAn_TotNghiep\Project\Project_Web_MVC_WebApi\Website_Laptop\Website_Laptop\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = C:\Do_an\DoAn_TotNghiep\Project\Project_Web_MVC_WebApi\Website_Laptop\Website_Laptop
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/AdminCart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXJ0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/AdminCart/ViewCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXJ0XFZpZXdDYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/AnhSanPham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXEFuaFNhblBoYW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/ChatLieuSanPham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXENoYXRMaWV1U2FuUGhhbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/DanhMucSanPham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXERhbmhNdWNTYW5QaGFtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/LoaiSanPham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXExvYWlTYW5QaGFtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/QuanLyUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXFF1YW5MeVVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/QuocGia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXFF1b2NHaWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/ThemLoaiSanPham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXFRoZW1Mb2FpU2FuUGhhbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/ThemSanPhamMoi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXFRoZW1TYW5QaGFtTW9pLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/ThemSanPhamMoi2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXFRoZW1TYW5QaGFtTW9pMi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Access/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Cart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Checkout/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Home/ProductDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Shared/Components/LoaiSpMenu/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTG9haVNwTWVudVxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Shared/_NotificationPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb25QYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-7n72r4z8lg

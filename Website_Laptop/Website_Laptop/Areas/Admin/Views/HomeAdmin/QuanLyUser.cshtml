@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Website_Laptop.Models.PcUser>
+
+@{
+    ViewData["Title"] = "QuanLyUser";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>QuanLyUser</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNameUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassWordUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GmailUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoaiUser)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountNameUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassWordUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GmailUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiUser)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaUser">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaUser">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaUser">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

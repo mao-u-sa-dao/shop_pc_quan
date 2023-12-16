@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Website_Laptop.Models.PcDanhMucSp;
+
+<!-- Nội dung trang -->
+<div id="displayProduct"></div>
+
+
+@* Javascript *@
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    axios.get('/api/ProductApi')
+        .then(response => {
+            // Xử lý dữ liệu nhận được từ API
+            var productList = response.data;
+            var str = '';
+            productList.forEach(product => {
+                str += '<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat" >';
+                str += '<div class="featured__item" >';
+                str += '<div class="featured__item__pic set-bg" data-setbg=\"';
+                var linkImg = "../img/" + $.trim(product.anhDaiDien);
+                str += linkImg;
+                str += '\" style = "background-image: url(&quot;';
+                str += linkImg;
+                str += '&quot;)">';
+                str += ' <ul class="featured__item__pic__hover" >';
+                str += ' <li><a href="#"> <i class="fa fa-heart"> </i></a> </li>';
+                str += '<li> <a href="#"> <i class="fa fa-retweet" > </i></a> </li>';
+                str += '<li> <a href=\"/Cart/Add?maSp=';
+                str += $.trim(product.maSp);
+                str+=  '"> <i class="fa fa-shopping-cart" > </i></a> </li>';
+                str += '<ul>';
+                str += '</div>';
+                str += '<div class="featured__item__text" >';
+                str += '<h6><a href=\"/Home/ProductDetail?maSp=';
+                str += $.trim(product.maSp);
+                str += '\">';
+                str += $.trim(product.tenSp);
+                str += '</a></h6 >';
+                str += '<h5>' + product.giaSp + '</h5>';
+                str += '</div>';
+                str += '</div>';
+                str += '</div>';
+
+            });
+            $('#displayProduct').html(str);
+        })
+        .catch(error => {
+            // Xử lý lỗi nếu có
+            console.error('Error fetching product list:', error);
+        });
+</script>

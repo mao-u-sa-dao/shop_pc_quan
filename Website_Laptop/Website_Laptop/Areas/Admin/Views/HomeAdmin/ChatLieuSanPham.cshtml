@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Website_Laptop.Models.PcChatLieuSp>
+
+@{
+    ViewData["Title"] = "ChatLieuSanPham";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>ChatLieuSanPham</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenChatLieu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenChatLieu)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaChatLieu">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaChatLieu">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaChatLieu">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

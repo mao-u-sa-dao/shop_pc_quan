@@ -1,0 +1,73 @@
+﻿@using Website_Laptop.Models;
+@model IEnumerable<Website_Laptop.Models.DetailDonhangPc>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Đơn Hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Đơn Hàng</h2>
+<p>@TempData["Message"]</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Mã Đơn Hàng
+            </th>
+            <th>
+                Mã Sản Phẩm
+            </th>
+            <th>
+                Tên Sản Phẩm
+            </th>
+            <th>
+                Số Lượng
+            </th>
+            <th>
+                Đơn Giá
+            </th>
+            <th>
+                Tổng tiền
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var donGia = item.DonGia;
+            var soLuong = item.SoLuong;
+            var tongTien = donGia * soLuong;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaDonHang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaSp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaSpNavigation.TenSp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonGia)
+                </td>
+                <td>
+                    @tongTien
+                </td>
+                <td>
+                    <a asp-action="View" asp-controller="AdminCart" asp-route-maSanPham="@item.MaDonHang">View</a> |
+                    <a asp-action="Delete" asp-route-maSanPham="@item.MaDonHang">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
