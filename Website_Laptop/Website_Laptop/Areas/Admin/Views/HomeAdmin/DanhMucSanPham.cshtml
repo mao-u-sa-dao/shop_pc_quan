@@ -41,9 +41,9 @@
                     @Html.DisplayFor(modelItem => item.GiaSp)
                 </td>
                 <td>
-                    <a asp-action="SuaSanPham" asp-route-maSanPham="@item.MaSp">Edit</a> |
+                    <a asp-action="UpdateProduct" asp-route-maSanPham="@item.MaSp">Edit</a> |
                     <a asp-action="ThongTinSanPham" asp-route-maSanPham="@item.MaSp">Details</a> |
-                    <a asp-action="XoaSanPham" asp-route-maSanPham="@item.MaSp">Delete</a>
+                    <a asp-action="DeleteProduct" onclick="DeleteProduct('@item.MaSp')" asp-route-maSanPham="@item.MaSp">Delete</a>
                 </td>
             </tr>
         }
@@ -52,3 +52,20 @@
 <div class="product__pagination">
     @Html.PagedListPager(Model, page => Url.Action("DanhMucSanPham", new { page = page }))
 </div>
+<script>
+    
+    function DeleteProduct(maSp) {
+        if (confirm("Bạn có chắc muốn xóa sản phẩm này không?")) {
+            $.ajax({
+                type: "DELETE",
+                url: "/api/AdminProductApi/" + maSp,
+                error: function (error) {
+                    console.error("Error updating product:", error);
+                }
+            });
+        }
+    }
+</script>
+
+
+

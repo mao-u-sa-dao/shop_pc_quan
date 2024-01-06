@@ -44,7 +44,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a asp-controller="Home" asp-action="Index"><img src="~/img/logo.png" alt=""></a>
+            <a asp-controller="Home" asp-action="Index"><img src="~/img/logopc.jpg" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -78,17 +78,24 @@
                     <li><a href="#">English</a></li>
                 </ul>
             </div>
+            <div class="header__top__right__language">
             <div class="header__top__right__auth">
-                @{
+@*                 @{
                     if (HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser") != null)
                     {
                         <div><a asp-controller="Home" asp-action="UserInfor" asp-route-AccountNameUser="@user"><h3>Xin chao: @user</h3></a></div>
                     }
-                }
+                } *@
                 @{
                     if (HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser") != null)
                     {
-                        <a asp-controller="Access" asp-action="Logout"><i class="fa fa-user"></i> Logout</a>
+                            <i class="fa fa-user"></i>
+                            <span class="arrow_carrot-down"></span>
+                            <ul>
+                                <li><a asp-controller="Home" asp-action="UserInfor" asp-route-AccountNameUser="@user">Xin chao: @user</a></li>
+                                <li><a asp-controller="Access" asp-action="Logout"><i class="fa fa-user"></i> Logout</a></li>
+                            </ul>
+                        
                     }
                 }
                 @{
@@ -98,7 +105,9 @@
 
                     }
                 }
+                
                 @* <a href="#"><i class="fa fa-user"></i> Login</a> *@
+            </div>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -163,27 +172,29 @@
                                     <li><a href="#">English</a></li>
                                 </ul>
                             </div>
+                            <div class="header__top__right__language">
                             <div class="header__top__right__auth">
-                                @{
-                                    if (HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser") != null)
-                                    {
-                                        <div><a asp-controller="Home" asp-action="UserInfor" asp-route-AccountNameUser="@user"><h3>Xin chao: @user</h3></a></div>
-                                    }
-                                }
-                                @{
-                                    if (HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser") != null)
-                                    {
-                                        <a asp-controller="Access" asp-action="Logout"><i class="fa fa-user"></i> Logout</a>
-                                    }
-                                }
-                                @{
-                                    if (HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser") == null)
-                                    {
-                                        <a asp-controller="Access" asp-action="Login"><i class="fa fa-user"></i> Login</a>
+                                    @{
+                                        if (HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser") != null)
+                                        {
+                                            <i class="fa fa-user"></i>
+                                            <span class="arrow_carrot-down"></span>
+                                            <ul>
+                                                <li><a asp-controller="Home" asp-action="UserInfor" asp-route-AccountNameUser="@user">Xin chao: @user</a></li>
+                                                <li><a asp-controller="Access" asp-action="Logout"><i class="fa fa-user"></i> Logout</a></li>
+                                            </ul>
 
+                                        }
                                     }
-                                }
+                                    @{
+                                        if (HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser") == null)
+                                        {
+                                            <a asp-controller="Access" asp-action="Login"><i class="fa fa-user"></i> Login</a>
+
+                                        }
+                                    }
                                 @* <a href="#"><i class="fa fa-user"></i> Login</a> *@
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -194,7 +205,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a asp-controller="Home" asp-action="Index"><img src="~/img/logo.png" alt=""></a>
+                        <a asp-controller="Home" asp-action="Index"><img src="~/img/logopc.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -275,10 +286,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="/img/hero/banner.jpg">
+                    <div class="hero__item set-bg" data-setbg="/img/hero/bannerpc.jpg">
                         <div class="hero__text">
-                            <span>FRUIT FRESH</span>
-                            <h2>Vegetable <br />100% Organic</h2>
+                            <span>LAPTOP/PC GAMING</span>
+                            <h2>Chính hãng<br />100% mới</h2>
                             <p>Free Pickup and Delivery Available</p>
                             <a href="#" class="primary-btn">SHOP NOW</a>
                         </div>
@@ -320,14 +331,14 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic">
-                            <img src="~/img/blog/blog-1.jpg" alt="">
+                            <img src="~/img/blog/blog-11.jpg" alt="">
                         </div>
                         <div class="blog__item__text">
                             <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2023</li>
                                 <li><i class="fa fa-comment-o"></i> 5</li>
                             </ul>
-                            <h5><a href="#">Cooking tips make cooking simple</a></h5>
+                            <h5><a href="#">Mẹo sử dụng máy tính trở nên đơn giản</a></h5>
                             <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
                         </div>
                     </div>
@@ -335,14 +346,14 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic">
-                            <img src="~/img/blog/blog-2.jpg" alt="">
+                            <img src="~/img/blog/blog-22.png" alt="">
                         </div>
                         <div class="blog__item__text">
                             <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2023</li>
                                 <li><i class="fa fa-comment-o"></i> 5</li>
                             </ul>
-                            <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
+                            <h5><a href="#">Những cách tối ưu dành cho máy tính</a></h5>
                             <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
                         </div>
                     </div>
@@ -350,14 +361,14 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic">
-                            <img src="~/img/blog/blog-3.jpg" alt="">
+                            <img src="~/img/blog/blog-33.jpg" alt="">
                         </div>
                         <div class="blog__item__text">
                             <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2023</li>
                                 <li><i class="fa fa-comment-o"></i> 5</li>
                             </ul>
-                            <h5><a href="#">Visit the clean farm in the US</a></h5>
+                            <h5><a href="#">Thăm nhà máy sản xuất máy tính</a></h5>
                             <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
                         </div>
                     </div>
@@ -373,12 +384,12 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a asp-controller="Home" asp-action="Index"><img src="~/img/logo.png" alt=""></a>
+                            <a asp-controller="Home" asp-action="Index"><img src="~/img/logopc.jpg" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
+                            <li>Địa chỉ: Nam Từ Liêm - Hà Nội</li>
+                            <li>Điện thoại: +84976169368</li>
+                            <li>Email: quan@gmail.com</li>
                         </ul>
                     </div>
                 </div>
@@ -386,27 +397,27 @@
                     <div class="footer__widget">
                         <h6>Useful Links</h6>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Về cửa hàng chúng tôi</a></li>
+                            <li><a href="#">Mua sắm an toàn</a></li>
+                            <li><a href="#">Thông tin giao hàng</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="#">Sơ đồ trang web của chúng tôi</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">Chúng tôi là ai</a></li>
+                            <li><a href="#">Dịch vụ của chúng tôi</a></li>
+                            <li><a href="#">Dự án</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                            <li><a href="#">Sửa đổi mới</a></li>
+                            <li><a href="#">Lời chứng thực</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <h6>Tham gia bản tin của chúng tôi ngay bây giờ</h6>
+                        <p>Nhận thông tin cập nhật qua E-mail về cửa hàng mới nhất của chúng tôi và các ưu đãi đặc biệt.</p>
                         <form action="#">
                             <input type="text" placeholder="Enter your mail">
                             <button type="submit" class="site-btn">Subscribe</button>

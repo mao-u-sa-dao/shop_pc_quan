@@ -35,8 +35,9 @@ namespace Website_Laptop.Controllers
         }
         public IActionResult ProductDetail(string maSp)
         {
+
             var sanPham = db.PcDanhMucSps.SingleOrDefault(x => x.MaSp == maSp);
-            var anhSanPham = db.PcAnhSps.Where(x=>x.MaSp == maSp).ToList();
+            var anhSanPham = db.PcAnhSps.Where(x => x.MaSp == maSp).ToList();
             var homeProductDetail = new HomeProductDetalModel
             {
                 danhMucSp = sanPham,

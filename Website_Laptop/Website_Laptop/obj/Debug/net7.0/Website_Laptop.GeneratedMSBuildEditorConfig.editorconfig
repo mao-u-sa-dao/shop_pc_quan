@@ -26,6 +26,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXJ0XFZpZXdDYXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/AddLoai.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXEFkZExvYWkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/AnhSanPham.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXEFuaFNhblBoYW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -36,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/DanhMucSanPham.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXERhbmhNdWNTYW5QaGFtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/EditLoai.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXEVkaXRMb2FpLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/Index.cshtml]
@@ -62,8 +70,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXFRoZW1TYW5QaGFtTW9pLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/ThemSanPhamMoi2.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXFRoZW1TYW5QaGFtTW9pMi5jc2h0bWw=
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/UpdateProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXFVwZGF0ZVByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/HomeAdmin/UppdateProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXFVwcGRhdGVQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml]
@@ -74,12 +86,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Access/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Cart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Checkout/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Checkout/PaymentFail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcUGF5bWVudEZhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Checkout/PaymentSuccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcUGF5bWVudFN1Y2Nlc3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Do_an/DoAn_TotNghiep/Project/Project_Web_MVC_WebApi/Website_Laptop/Website_Laptop/Views/Home/Index.cshtml]

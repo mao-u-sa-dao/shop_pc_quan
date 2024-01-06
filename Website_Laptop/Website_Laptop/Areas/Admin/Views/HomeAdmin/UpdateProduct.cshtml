@@ -1,0 +1,117 @@
+﻿@model Website_Laptop.Models.PcDanhMucSp
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>UpdateProduct</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form id="editProductForm" asp-action="UpdateProduct" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <!-- Mã Sản Phẩm -->
+            <div class="form-group">
+                <label for="MaSp">Mã Sản Phẩm:</label>
+                <input type="text" class="form-control" id="MaSp" name="MaSp" value="@Model.MaSp" readonly />
+            </div>
+
+            <!-- Tên Sản Phẩm -->
+            <div class="form-group">
+                <label for="TenSp">Tên Sản Phẩm:</label>
+                <input type="text" class="form-control" id="TenSp" name="TenSp" value="@Model.TenSp" />
+            </div>
+
+            <!-- Cân Nặng -->
+            <div class="form-group">
+                <label for="CanNang">Cân Nặng:</label>
+                <input type="number" class="form-control" id="CanNang" name="CanNang" value="@Model.CanNang" />
+            </div>
+
+            <!-- Mã Chất Liệu -->
+            <div class="form-group">
+                <label for="MaChatLieu">Mã Chất Liệu:</label>
+                <select asp-for="MaChatLieu" id="MaChatLieu" class="form-control" value="@Model.MaChatLieu" asp-items="ViewBag.MaChatLieu"></select>
+            </div>
+
+            <!-- Mã Quốc Gia Sản Xuất -->
+            <div class="form-group">
+                <label for="MaQuocGiaSx">Mã Quốc Gia Sản Xuất:</label>
+                <select asp-for="MaQuocGiaSx" id="MaQuocGiaSx" class="form-control" value="@Model.MaQuocGiaSx" asp-items="ViewBag.MaQuocGiaSx"></select>
+            </div>
+
+            <!-- Thời Gian Bảo Hành -->
+            <div class="form-group">
+                <label for="ThoiGianBaoHanh">Thời Gian Bảo Hành:</label>
+                <input type="text" class="form-control" id="ThoiGianBaoHanh" name="ThoiGianBaoHanh" value="@Model.ThoiGianBaoHanh" />
+            </div>
+
+            <!-- Giới Thiệu Sản Phẩm -->
+            <div class="form-group">
+                <label for="GioiThieuSp">Giới Thiệu Sản Phẩm:</label>
+                <textarea class="form-control" id="GioiThieuSp" name="GioiThieuSp">@Model.GioiThieuSp</textarea>
+            </div>
+
+            <!-- Mã Loại -->
+            <div class="form-group">
+                <label for="MaLoai">Mã Loại:</label>
+                <select asp-for="MaLoai" id="MaLoai" class="form-control" value="@Model.MaLoai" asp-items="ViewBag.MaLoai"></select>
+            </div>
+
+            <!-- Ảnh Đại Diện -->
+            <div class="form-group">
+                <label asp-for="AnhDaiDien">Chọn hình ảnh:</label>
+                <input type="file" id="AnhDaiDien" name="AnhDaiDien" onchange="FileAnh()" class="form-control-file" />
+                <div id="fileNameDisplay">@Model.AnhDaiDien</div>
+            </div>
+
+            <!-- Giá Sản Phẩm -->
+            <div class="form-group">
+                <label for="GiaSp">Giá Sản Phẩm:</label>
+                <input type="number" class="form-control" id="GiaSp" name="GiaSp" value="@Model.GiaSp" />
+            </div>
+
+            <button type="submit" class="btn btn-primary" onclick="saveChanges()">Lưu</button>
+        </form>
+    </div>
+</div>
+<script>
+    function FileAnh() {
+        var fileName = '';
+        //Lấy Tên đường dẫn file
+        var input = document.getElementById('AnhDaiDien');
+        var fileNameDisplay = document.getElementById('fileNameDisplay');
+        // kiểm tra xem đã chọn file nào chưa
+        if (input.files.length > 0) {
+            // Lấy tên đầy đủ của tệp tin đầu tiên
+            fileName = input.files[0].name;
+            fileNameDisplay.innerText = fileName;
+        } else {
+            fileNameDisplay.innerText = 'Không có file được chọn';
+        }
+    }
+    function saveChanges() {
+        var updatedProduct = {
+            MaSp: "@Model.MaSp",
+            TenSp: $("#TenSp").val(),
+            CanNang: $("#CanNang").val(),
+            MaChatLieu: $("#MaChatLieu").val(),
+            MaQuocGiaSx: $("#MaQuocGiaSx").val(),
+            ThoiGianBaoHanh: $("#ThoiGianBaoHanh").val(),
+            GioiThieuSp: $("#GioiThieuSp").val(),
+            MaLoai: $("#MaLoai").val(),
+            AnhDaiDien: $("#fileNameDisplay").text(),
+            GiaSp: $("#GiaSp").val()
+        };
+
+        $.ajax({
+            type: "PUT",
+            url: "/api/AdminProductApi/@Model.MaSp",
+            contentType: "application/json",
+            data: JSON.stringify(updatedProduct),
+            error: function (error) {
+                console.error("Error updating product:", error);
+            }
+        });
+    }
+</script>

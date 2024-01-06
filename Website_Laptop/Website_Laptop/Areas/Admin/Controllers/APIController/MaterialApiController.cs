@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Website_Laptop.Models;
-namespace Website_Laptop.Areas.Admin.Controllers
+namespace Website_Laptop.Areas.Admin.Controllers.APIController
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -17,7 +17,7 @@ namespace Website_Laptop.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult<PcChatLieuSp>> AddMaterial(PcChatLieuSp pcChatLieuSp)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 db.PcChatLieuSps.Add(pcChatLieuSp);
                 await db.SaveChangesAsync();
@@ -26,5 +26,5 @@ namespace Website_Laptop.Areas.Admin.Controllers
             return BadRequest(ModelState);
         }
     }
-      
+
 }

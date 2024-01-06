@@ -53,8 +53,8 @@
                 </div>
                 <div class="form-group">
                 <label for="AnhDaiDien">Chọn hình ảnh:</label>
-                <input type="file" id="AnhDaiDien" name="AnhDaiDien" onchange="addProduct()" class="form-control-file" />
-                <div id="fileNameDisplay"></div>
+                <input type="file" id="AnhDaiDien" name="AnhDaiDien" onchange="FileAnh()" class="form-control-file" />
+                <div id="fileNameDisplay" ></div>
                 </div>
 
                 <div class="form-group">
@@ -73,34 +73,37 @@
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+    var fileName = '';
+        function FileAnh() {
+            //Lấy Tên đường dẫn file
+            var input = document.getElementById('AnhDaiDien');
+            var fileNameDisplay = document.getElementById('fileNameDisplay');
+            // kiểm tra xem đã chọn file nào chưa
+            if (input.files.length > 0) {
+                // Lấy tên đầy đủ của tệp tin đầu tiên
+                fileName = input.files[0].name;
+                fileNameDisplay.innerText = 'Tên file: ' + fileName;
+            } else {
+                fileNameDisplay.innerText = 'Không có file được chọn';
+            }
+        }
 
         function addProduct() {
-        //Lấy Tên đường dẫn file
-        var input = document.getElementById('AnhDaiDien');
-        var fileNameDisplay = document.getElementById('fileNameDisplay');
-        var fileName = '';
-        // kiểm tra xem đã chọn file nào chưa
-        if (input.files.length > 0) {
-        // Lấy tên đầy đủ của tệp tin đầu tiên
-            fileName = input.files[0].name;
-            fileNameDisplay.innerText = 'Tên file: ' + fileName;
-        } else {
-            fileNameDisplay.innerText = 'Không có file được chọn';
-        }
-        // Lấy dữ liệu từ các thẻ input
+            // Lấy dữ liệu từ các thẻ input
         var maSp = document.getElementById('MaSp').value;
-        var tenSp = document.getElementById('TenSp').value;
-        var canNang = document.getElementById('CanNang').value;
-        var maChatLieu = document.getElementById('MaChatLieu').value;
-        var maQuocGiaSx = document.getElementById('MaQuocGia').value;
-        var thoiGianBaoHanh = document.getElementById('ThoiGianBaoHanh').value;
-        var gioiThieuSp = document.getElementById('GioiThieuSp').value;
-        var maLoai = document.getElementById('MaLoai').value;
-        var anhDaiDien = fileName;
-        var giaSp = document.getElementById('GiaSp').value;
+            var tenSp = document.getElementById('TenSp').value;
+            var canNang = document.getElementById('CanNang').value;
+            var maChatLieu = document.getElementById('MaChatLieu').value;
+            var maQuocGiaSx = document.getElementById('MaQuocGia').value;
+            var thoiGianBaoHanh = document.getElementById('ThoiGianBaoHanh').value;
+            var gioiThieuSp = document.getElementById('GioiThieuSp').value;
+            var maLoai = document.getElementById('MaLoai').value;
+            var anhDaiDien = fileName;
+            var giaSp = document.getElementById('GiaSp').value;
 
-        // truyền dữ liệu vào
-        axios.post('/api/AdminProductApi', {
+            // truyền dữ liệu vào
+
+            axios.post('/api/AdminProductApi', {
                 maSp: maSp,
                 tenSp: tenSp,
                 canNang: canNang,
@@ -113,14 +116,14 @@
                 giaSp: giaSp,
 
             })
-            .then(response => {
+                .then(response => {
 
-                console.log('Product added successfully');
+                    console.log('Product added successfully');
 
-            })
-            .catch(error => {
-                console.error('Error adding product:', error.response.data);
-            });
+                })
+                .catch(error => {
+                    console.error('Error adding product:', error.response.data);
+                });
         }
 
         

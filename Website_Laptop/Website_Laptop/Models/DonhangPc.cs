@@ -11,12 +11,6 @@ public partial class DonhangPc
 
     public string MaUser { get; set; } = null!;
 
-    public string FirstAndLastName { get; set; } = null!;
-
-    public string PhoneNumber { get; set; } = null!;
-
-    public string AddressDonhang { get; set; } = null!;
-
     public DateTime CreateDate { get; set; }
 
     public int StatusDonhang { get; set; }

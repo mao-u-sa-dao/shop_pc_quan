@@ -1,0 +1,49 @@
+﻿@model Website_Laptop.Models.PcLoaiSp
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "EditLoai";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>EditLoai</h1>
+
+<h4>PcLoaiSp</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditLoai">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaLoai" />
+            <div class="form-group">
+                <label for="TenLoai">Tên Loai:</label>
+                <input type="text" class="form-control" id="TenLoai" name="TenLoai" value="@Model.TenLoai" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" onclick="editLoai()" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+    function editLoai() {
+        console.log($("#TenLoai").val());
+        var updateLoai = {
+            MaLoai: "@Model.MaLoai",
+            TenLoai: $("#TenLoai").val()
+        };
+        $.ajax({
+            type: "PUT",
+            url: "/api/categoryapi/@Model.MaLoai",
+            contentType: "application/json",
+            data: JSON.stringify(updateLoai),
+            error: function (error) {
+                console.error("Loi khi sua san pham:", error);
+            }
+        });
+    }
+</script>

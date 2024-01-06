@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "W+5EYLLCU9WU+tSo8SIdTBq7iG3Xl+nhf0SPlBM+88s=",
+  "Hash": "VKNpKD0YY9pGJn3s9XXAp6wzubQVFcQPn7QqxUsYIPs=",
   "Source": "Website_Laptop",
   "BasePath": "_content/Website_Laptop",
   "Mode": "Default",
@@ -663,12 +663,12 @@
       "OriginalItemSpec": "wwwroot\\img\\banner\\banner-2.jpg"
     },
     {
-      "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-1.jpg",
+      "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-11.jpg",
       "SourceId": "Website_Laptop",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\",
       "BasePath": "_content/Website_Laptop",
-      "RelativePath": "img/blog/blog-1.jpg",
+      "RelativePath": "img/blog/blog-11.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -679,15 +679,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\blog\\blog-1.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\blog\\blog-11.jpg"
     },
     {
-      "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-2.jpg",
+      "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-22.png",
       "SourceId": "Website_Laptop",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\",
       "BasePath": "_content/Website_Laptop",
-      "RelativePath": "img/blog/blog-2.jpg",
+      "RelativePath": "img/blog/blog-22.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -698,15 +698,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\blog\\blog-2.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\blog\\blog-22.png"
     },
     {
-      "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-3.jpg",
+      "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-33.jpg",
       "SourceId": "Website_Laptop",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\",
       "BasePath": "_content/Website_Laptop",
-      "RelativePath": "img/blog/blog-3.jpg",
+      "RelativePath": "img/blog/blog-33.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -717,7 +717,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\blog\\blog-3.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\blog\\blog-33.jpg"
     },
     {
       "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-4.jpg",
@@ -1060,6 +1060,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\categories\\cat-5.jpg"
+    },
+    {
+      "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\DELLXPS.jpg",
+      "SourceId": "Website_Laptop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\",
+      "BasePath": "_content/Website_Laptop",
+      "RelativePath": "img/DELLXPS.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\DELLXPS.jpg"
     },
     {
       "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\featured\\feature-1.jpg",
@@ -26788,12 +26807,12 @@
       "OriginalItemSpec": "wwwroot\\img\\featured\\images_Vali\\vi-roncato-orizzontale-nau-da-bo-92.jpg"
     },
     {
-      "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\hero\\banner.jpg",
+      "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\hero\\bannerpc.jpg",
       "SourceId": "Website_Laptop",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\",
       "BasePath": "_content/Website_Laptop",
-      "RelativePath": "img/hero/banner.jpg",
+      "RelativePath": "img/hero/bannerpc.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -26804,7 +26823,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\hero\\banner.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\hero\\bannerpc.jpg"
     },
     {
       "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\language.png",
@@ -26921,6 +26940,25 @@
       "OriginalItemSpec": "wwwroot\\img\\logo.png"
     },
     {
+      "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\logopc.jpg",
+      "SourceId": "Website_Laptop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\",
+      "BasePath": "_content/Website_Laptop",
+      "RelativePath": "img/logopc.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logopc.jpg"
+    },
+    {
       "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\payment-item.png",
       "SourceId": "Website_Laptop",
       "SourceType": "Discovered",
@@ -26938,6 +26976,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\payment-item.png"
+    },
+    {
+      "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\pcdoimoi.jpg",
+      "SourceId": "Website_Laptop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\",
+      "BasePath": "_content/Website_Laptop",
+      "RelativePath": "img/pcdoimoi.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\pcdoimoi.jpg"
     },
     {
       "Identity": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\product\\details\\product-details-1.jpg",

@@ -32,7 +32,7 @@ namespace Website_Laptop.Controllers.Access
                     HttpContext.Session.SetString("AccountNameUser", u.AccountNameUser.ToString());
                     HttpContext.Session.SetString("MaUser", u.MaUser.ToString());
                     HttpContext.Session.SetInt32("LoaiUser", Convert.ToInt32(u.LoaiUser));
-                    if (HttpContext.Session.GetInt32("LoaiUser") == 0)
+                    if (HttpContext.Session.GetInt32("LoaiUser") == 1)
                     {
                         return RedirectToAction("Index", "Home");
                     }
@@ -42,6 +42,13 @@ namespace Website_Laptop.Controllers.Access
 
             return View();
         }
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Register(PcUser pcUser) => RedirectToAction("Login", "Access");
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();

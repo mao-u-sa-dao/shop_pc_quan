@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Website_Laptop.Models.PcLoaiSp>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     ViewData["Title"] = "LoaiSanPham";
@@ -8,7 +9,7 @@
 <h1>LoaiSanPham</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="AddLoai">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -26,11 +27,30 @@
                 @Html.DisplayFor(modelItem => item.TenLoai)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.MaLoai">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MaLoai">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MaLoai">Delete</a>
+                    <a asp-action="EditLoai" asp-route-maLoai="@item.MaLoai">Edit</a> |
+                    <a asp-action="Details" asp-route-maLoai="@item.MaLoai">Details</a> |
+                    <a asp-action="DeleteLoai" onclick="DeleteLoaiSp('@item.MaLoai')" asp-route-maLoai="@item.MaLoai">Delete</a>
             </td>
+            
         </tr>
 }
     </tbody>
 </table>
+
+<script>
+
+    function DeleteLoaiSp(maLoai) {
+        if (confirm("Bạn có chắc muốn xóa loại sản phẩm này không?")) {
+            $.ajax({
+                type: "DELETE",
+                url: "/api/categoryapi/" + maLoai,
+                success: function (success) {
+                    console.log("Xóa loại sản phẩm thành công")
+                },
+                error: function (error) {
+                    console.error("Lỗi khi xóa loại sản phẩm: ", error);
+                }
+            });
+        }
+    }
+</script>

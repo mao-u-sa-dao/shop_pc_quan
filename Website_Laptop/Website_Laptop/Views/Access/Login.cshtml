@@ -1,6 +1,7 @@
 ﻿@{
     Layout = null;
 }
+
 @model PcUser
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +76,7 @@
                                     </button>
                                 </div>
                                 <div class="text-center mt-4 font-weight-light">
-                                    Don't have an account? <a href="register.html" class="text-primary">Create</a>
+                                    Don't have an account? <a asp-controller="Access" asp-action="Register" class="text-primary">Create</a>
                                 </div>
 
                             }@*</form>*@

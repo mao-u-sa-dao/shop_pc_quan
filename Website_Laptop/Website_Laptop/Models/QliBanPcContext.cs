@@ -27,6 +27,8 @@ public partial class QliBanPcContext : DbContext
 
     public virtual DbSet<PcDanhMucSp> PcDanhMucSps { get; set; }
 
+    public virtual DbSet<PcHoaDon> PcHoaDons { get; set; }
+
     public virtual DbSet<PcLoaiSp> PcLoaiSps { get; set; }
 
     public virtual DbSet<PcQuocGiaSx> PcQuocGiaSxes { get; set; }
@@ -101,18 +103,12 @@ public partial class QliBanPcContext : DbContext
 
             entity.ToTable("DonhangPc");
 
-            entity.Property(e => e.AddressDonhang).HasMaxLength(100);
             entity.Property(e => e.CreateDate).HasColumnType("datetime");
-            entity.Property(e => e.FirstAndLastName).HasMaxLength(100);
             entity.Property(e => e.MaDonHang)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .IsFixedLength();
             entity.Property(e => e.MaUser)
-                .HasMaxLength(20)
-                .IsUnicode(false)
-                .IsFixedLength();
-            entity.Property(e => e.PhoneNumber)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .IsFixedLength();
@@ -206,6 +202,27 @@ public partial class QliBanPcContext : DbContext
             entity.HasOne(d => d.MaQuocGiaSxNavigation).WithMany(p => p.PcDanhMucSps)
                 .HasForeignKey(d => d.MaQuocGiaSx)
                 .HasConstraintName("FK_DMSP_QGSX");
+        });
+
+        modelBuilder.Entity<PcHoaDon>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__pcHoaDon__3214EC07089DD007");
+
+            entity.ToTable("pcHoaDon");
+
+            entity.Property(e => e.CachThanhToan).HasMaxLength(30);
+            entity.Property(e => e.DiaChi).HasMaxLength(100);
+            entity.Property(e => e.GhiChu).HasMaxLength(100);
+            entity.Property(e => e.MaDonHang)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .IsFixedLength();
+            entity.Property(e => e.SoDienThoai)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .IsFixedLength();
+            entity.Property(e => e.SoTienThanh).HasColumnType("decimal(18, 0)");
+            entity.Property(e => e.TenKhachHang).HasMaxLength(50);
         });
 
         modelBuilder.Entity<PcLoaiSp>(entity =>

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Website_Laptop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ca12e442eb1d79a40d9caa3193904260acd9afc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+079d3206bfc7a2fc510b72f030826ed20e6954ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("Website_Laptop")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Website_Laptop")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

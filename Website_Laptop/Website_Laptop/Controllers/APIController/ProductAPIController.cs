@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Website_Laptop.Models;
 using Website_Laptop.Models.ProductModelsAPI;
 
-namespace Website_Laptop.Controllers
+namespace Website_Laptop.Controllers.APIController
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -14,14 +14,15 @@ namespace Website_Laptop.Controllers
         [HttpGet]
         public IEnumerable<Product> GetAllProduct()
         {
-            var sanPham = (from p in db.PcDanhMucSps select new Product
-            {
-                MaSp = p.MaSp,
-                TenSp = p.TenSp,
-                MaLoai = p.MaLoai,
-                AnhDaiDien = p.AnhDaiDien,
-                GiaSp = p.GiaSp,
-            }).ToList();
+            var sanPham = (from p in db.PcDanhMucSps
+                           select new Product
+                           {
+                               MaSp = p.MaSp,
+                               TenSp = p.TenSp,
+                               MaLoai = p.MaLoai,
+                               AnhDaiDien = p.AnhDaiDien,
+                               GiaSp = p.GiaSp,
+                           }).ToList();
             return sanPham;
         }
         [HttpGet("{maloai}")]
@@ -39,6 +40,7 @@ namespace Website_Laptop.Controllers
                            }).ToList();
             return sanpham;
         }
-        
-    } 
+
+
+    }
 }

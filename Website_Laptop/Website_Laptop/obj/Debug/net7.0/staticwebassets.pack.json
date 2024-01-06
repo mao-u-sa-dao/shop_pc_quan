@@ -1245,6 +1245,10 @@
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff2"
     },
     {
+      "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\DELLXPS.jpg",
+      "PackagePath": "staticwebassets\\img\\DELLXPS.jpg"
+    },
+    {
       "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\Laptoppmoi.jpg",
       "PackagePath": "staticwebassets\\img\\Laptoppmoi.jpg"
     },
@@ -1257,16 +1261,16 @@
       "PackagePath": "staticwebassets\\img\\banner\\banner-2.jpg"
     },
     {
-      "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-1.jpg",
-      "PackagePath": "staticwebassets\\img\\blog\\blog-1.jpg"
+      "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-11.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\blog-11.jpg"
     },
     {
-      "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-2.jpg",
-      "PackagePath": "staticwebassets\\img\\blog\\blog-2.jpg"
+      "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-22.png",
+      "PackagePath": "staticwebassets\\img\\blog\\blog-22.png"
     },
     {
-      "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-3.jpg",
-      "PackagePath": "staticwebassets\\img\\blog\\blog-3.jpg"
+      "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-33.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\blog-33.jpg"
     },
     {
       "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\blog\\blog-4.jpg",
@@ -6757,8 +6761,8 @@
       "PackagePath": "staticwebassets\\img\\featured\\images_Vali\\vi-roncato-orizzontale-nau-da-bo-92.jpg"
     },
     {
-      "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\hero\\banner.jpg",
-      "PackagePath": "staticwebassets\\img\\hero\\banner.jpg"
+      "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\hero\\bannerpc.jpg",
+      "PackagePath": "staticwebassets\\img\\hero\\bannerpc.jpg"
     },
     {
       "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\language.png",
@@ -6781,8 +6785,16 @@
       "PackagePath": "staticwebassets\\img\\logo.png"
     },
     {
+      "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\logopc.jpg",
+      "PackagePath": "staticwebassets\\img\\logopc.jpg"
+    },
+    {
       "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\payment-item.png",
       "PackagePath": "staticwebassets\\img\\payment-item.png"
+    },
+    {
+      "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\pcdoimoi.jpg",
+      "PackagePath": "staticwebassets\\img\\pcdoimoi.jpg"
     },
     {
       "Id": "C:\\Do_an\\DoAn_TotNghiep\\Project\\Project_Web_MVC_WebApi\\Website_Laptop\\Website_Laptop\\wwwroot\\img\\product\\details\\product-details-1.jpg",

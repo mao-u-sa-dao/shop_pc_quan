@@ -99,5 +99,6 @@ namespace Website_Laptop.Controllers.Shoppingcart
             TempData["success"] = "Xóa tất cả sản phẩm trong giỏ hàng thành công";
             return RedirectToAction("Index");
         }
+        
     }
 }

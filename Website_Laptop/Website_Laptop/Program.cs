@@ -5,6 +5,7 @@ using System.Configuration;
 using Microsoft.Extensions.Options;
 using Website_Laptop.Repository;
 using Website_Laptop.Models.ShopingCart.ViewModels;
+using Website_Laptop.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,14 @@ builder.Services.AddSession(options =>
 });
 
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AlowAll",
+        builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+});
+
+// ??ng ký vnpay
+builder.Services.AddSingleton<IVnPayService, VnPayService>();
 
 var app = builder.Build();
 
