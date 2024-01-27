@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "LoaiSanPham";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h1>LoaiSanPham</h1>
@@ -27,16 +27,15 @@
                 @Html.DisplayFor(modelItem => item.TenLoai)
             </td>
             <td>
-                    <a asp-action="EditLoai" asp-route-maLoai="@item.MaLoai">Edit</a> |
-                    <a asp-action="Details" asp-route-maLoai="@item.MaLoai">Details</a> |
-                    <a asp-action="DeleteLoai" onclick="DeleteLoaiSp('@item.MaLoai')" asp-route-maLoai="@item.MaLoai">Delete</a>
+                    <a asp-action="EditLoai" asp-route-maLoai="@item.MaLoai">Sửa</a> |
+                    <a asp-action="DetailsLoai" asp-route-maLoai="@item.MaLoai">Chi tiết</a> |
+                    <button  onclick="DeleteLoaiSp('@item.MaLoai')">Xóa</button>
             </td>
             
         </tr>
 }
     </tbody>
 </table>
-
 <script>
 
     function DeleteLoaiSp(maLoai) {
@@ -45,9 +44,28 @@
                 type: "DELETE",
                 url: "/api/categoryapi/" + maLoai,
                 success: function (success) {
-                    console.log("Xóa loại sản phẩm thành công")
+                    // Hiển thị thông báo thành công bằng SweetAlert2
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Xóa thành công',
+                        text: 'Loại sản phẩm đã được xóa thành công.',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Chuyển hướng đến trang cụ thể
+                            window.location.href = '/Admin/LoaiSanPham';
+                        }
+                    });
                 },
                 error: function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Lỗi',
+                        text: 'Không thể xóa loại sản phẩm này khi đang liên quan tới sản phẩm',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '/Admin/LoaiSanPham';
+                        }
+                    });
                     console.error("Lỗi khi xóa loại sản phẩm: ", error);
                 }
             });

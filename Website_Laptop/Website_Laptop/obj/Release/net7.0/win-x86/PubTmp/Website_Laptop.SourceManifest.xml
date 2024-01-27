@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Do_an\DoAn_TotNghiep\Project\Project_Web_MVC_WebApi\Website_Laptop\Website_Laptop\obj\Release\net7.0\win-x86\PubTmp\Out\" />
+  <dbfullsql path="C:\Do_an\DoAn_TotNghiep\Project\Project_Web_MVC_WebApi\Website_Laptop\Website_Laptop\obj\Release\net7.0\win-x86\PubTmp\EFSQLScripts\Website_Laptop.Models.QliBanPcContext.sql" />
+</sitemanifest>

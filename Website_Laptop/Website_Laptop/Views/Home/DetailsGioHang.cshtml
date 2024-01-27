@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Website_Laptop.Models.DetailDonhangPc>
+@{
+    ViewData["Title"] = "DetailsGioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Chi tiết đơn hàng</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên Sản Phẩm
+            </th>
+            <th>
+                Ảnh sản phẩm
+            </th>
+            <th>
+                Số Lượng
+            </th>
+            <th>
+                Đơn Giá
+            </th>
+            <th>
+                Tổng tiền
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var donGia = item.DonGia;
+            var soLuong = item.SoLuong;
+            var tongTien = donGia * soLuong;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaSpNavigation.TenSp)
+                </td>
+                <td>
+                    <img class="rounded-circle" style="width: 40px; height: 40px;" src="~/img/product/@item.MaSpNavigation.AnhDaiDien" alt="">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonGia)
+                </td>
+                <td>
+                    @tongTien
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

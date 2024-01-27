@@ -45,6 +45,19 @@ namespace Website_Laptop.Controllers
             };
             return View(homeProductDetail);
         }
-        
+        public IActionResult GioHang(string maUser)
+        {
+            var donHang = db.DonhangPcs.Where(x=>x.MaUser == maUser).ToList();
+            return View(donHang);
+        }
+        public IActionResult DetailsGioHang(string maDonHang)
+        {
+            var donHangDetails = db.DetailDonhangPcs
+                .Where(d => d.MaDonHang == maDonHang)
+                .Include(d => d.MaSpNavigation)
+                .ToList();
+            return View(donHangDetails);
+        }
+
     }
 }

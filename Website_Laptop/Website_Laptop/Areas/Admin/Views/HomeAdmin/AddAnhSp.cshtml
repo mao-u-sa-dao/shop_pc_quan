@@ -1,0 +1,96 @@
+﻿@model Website_Laptop.Models.PcAnhSp
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "AddAnhSp";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Thêm ảnh của sản phẩm</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddAnhSp" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaAnhSp" class="control-label"></label>
+                <input asp-for="MaAnhSp" id="MaAnhSp" class="form-control" />
+                <span asp-validation-for="MaAnhSp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaSp" class="control-label"></label>
+                <input asp-for="MaSp" readonly id="MaSp"  class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="TenFileAnh">Chọn hình ảnh:</label>
+                <input type="file" id="TenFileAnh" name="TenFileAnh" onchange="FileAnh()" class="form-control-file" />
+                <div id="fileNameDisplay"></div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ViTri" class="control-label"></label>
+                <input asp-for="ViTri" id="ViTri" class="form-control" />
+                <span asp-validation-for="ViTri" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" onclick="AddAnhSp()" value="Thêm" class="btn btn-primary" /></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="AnhSanPham">Back to List</a>
+</div>
+<script>
+    var fileName = '';
+    function FileAnh() {
+        //Lấy Tên đường dẫn file
+        var input = document.getElementById('TenFileAnh');
+        var fileNameDisplay = document.getElementById('fileNameDisplay');
+        // kiểm tra xem đã chọn file nào chưa
+        if (input.files.length > 0) {
+            // Lấy tên đầy đủ của tệp tin đầu tiên
+            fileName = input.files[0].name;
+            fileNameDisplay.innerText = 'Tên file: ' + fileName;
+        } else {
+            fileNameDisplay.innerText = 'Không có file được chọn';
+        }
+    }
+    function AddAnhSp() {
+        var maAnhSp = document.getElementById('MaAnhSp').value;
+        var maSp = document.getElementById('MaSp').value
+        var tenFileAnh = fileName;
+        var viTri = document.getElementById('ViTri').value;
+
+
+        axios.post('/api/AnhSanPhamApi', {
+            maAnhSp: maAnhSp,
+            maSp: maSp,
+            tenFileAnh: tenFileAnh,
+            viTri: viTri,
+
+        })
+            .then(response => {
+                // Hiển thị thông báo thành công bằng SweetAlert2
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thêm thành công',
+                    text: 'Ảnh đã được thêm thành công.',
+                }).then(() => {
+                    // Chuyển hướng sau khi nhấn OK trong thông báo
+                    window.location.href = '/Admin/AnhSanPham';
+                });
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi',
+                    text: 'Lỗi khi thêm ảnh!',
+                });
+            });
+    }
+
+
+</script>
+
+

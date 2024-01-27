@@ -93,12 +93,12 @@ namespace Website_Laptop.Controllers.Shoppingcart
                     
                     
                 }
-                return View();
+                return RedirectToAction("PaymentSuccess");
             }
             catch(Exception e)
             {
                 TempData["error"] = "Có lỗi xảy ra trong quá trình xử lý đơn hàng. Vui lòng thử lại.";
-                return RedirectToAction("Index", "Cart");
+                return RedirectToAction("PaymentFail");
             }
         }
         public IActionResult PaymentFail()
@@ -109,12 +109,12 @@ namespace Website_Laptop.Controllers.Shoppingcart
         {
             return View();
         }
-        public IActionResult PaymentCallBack(IFormCollection form)
+        public IActionResult PaymentCallBack()
         {
             var response = _vnPayService.PaymentExecute(Request.Query);
             if (response == null || response.VnPayResponseCode != "00")
             {
-                TempData["success"] = $"Lỗi thanh toán VnPay: {response.VnPayResponseCode}";
+                TempData["error"] = $"Lỗi thanh toán VnPay: {response.VnPayResponseCode}";
                 return RedirectToAction("PaymentFail");
             }
             

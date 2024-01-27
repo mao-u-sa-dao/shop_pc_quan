@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Website_Laptop.Models.PcAnhSp>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "DetailsAnhSp";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Thông tin ảnh</h1>
+
+<p>
+    <a asp-action="AddAnhSp">Thêm ảnh</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Mã sản phẩm
+            </th>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Ảnh sản phẩm
+            </th>
+            <th>
+                Vị trí
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaSp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaSpNavigation.TenSp)
+                </td>
+                <td >
+                    <img class="rounded-circle" style="width: 40px; height: 40px;" src="~/img/product/details/@item.TenFileAnh" alt="">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ViTri)
+                </td>
+                <td>
+                    <a asp-action="EditAnhSp" asp-route-maAnhSp="@item.MaAnhSp">Chỉnh sửa</a> |
+                    <a onclick="DeleteAnhSp('@item.MaAnhSp','@item.MaSp')">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+
+    function DeleteAnhSp(maAnhSp,maSp) {
+        if (confirm("Bạn có chắc muốn xóa loại sản phẩm này không?")) {
+            $.ajax({
+                type: "DELETE",
+                url: "/api/AnhSanPhamApi/" + maAnhSp,
+                success: function (success) {
+                    // Hiển thị thông báo thành công bằng SweetAlert2
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Xóa thành công',
+                        text: 'Ảnh sản phẩm đã được xóa thành công.',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Chuyển hướng đến trang cụ thể
+                            window.location.href = '/Admin/DetailsAnhSp?maSp=' + maSp;
+                        }
+                    });
+                },
+                error: function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Lỗi',
+                        text: 'Không thể xóa loại sản phẩm này khi đang liên quan tới sản phẩm',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '/Admin/DetailsAnhSp?maSp=' + maSp;
+                        }
+                    });
+                    console.error("Lỗi khi xóa loại sản phẩm: ", error);
+                }
+            });
+        }
+    }
+</script>

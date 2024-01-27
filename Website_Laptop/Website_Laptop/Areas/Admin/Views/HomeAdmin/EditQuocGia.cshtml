@@ -1,0 +1,69 @@
+﻿@model Website_Laptop.Models.PcQuocGiaSx
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "EditQuocGia";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Chỉnh sửa quốc gia</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaQuocGiaSx" />
+            <div class="form-group">
+                <label asp-for="TenQuocGiaSx" class="control-label"></label>
+                <input asp-for="TenQuocGiaSx" class="form-control" />
+                <span asp-validation-for="TenQuocGiaSx" class="text-danger"></span>
+            </div>
+        </form>
+        <div class="form-group">
+            <input onclick="EditQuocGia()" value="Save" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="QuocGia">Back to List</a>
+</div>
+
+<script>
+    function EditQuocGia() {
+        var updateQuocGia = {
+            MaQuocGiaSx: "@Model.MaQuocGiaSx",
+            TenQuocGiaSx: $("#TenQuocGiaSx").val()
+        };
+        $.ajax({
+            type: "PUT",
+            url: "/api/QuocGiaApi/@Model.MaQuocGiaSx",
+            contentType: "application/json",
+            data: JSON.stringify(updateQuocGia),
+            success: function (success) {
+                // Hiển thị thông báo thành công bằng SweetAlert2
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thành công!',
+                    text: 'Quốc gia đã được chỉnh sửa thành công.',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Chuyển hướng đến trang cụ thể
+                        window.location.href = '/Admin/QuocGia';
+                    }
+                });
+            },
+            error: function (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi',
+                    text: 'Lỗi khi chỉnh sửa.',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '/Admin/QuocGia';
+                    }
+                });
+            }
+        });
+    }
+</script>
+

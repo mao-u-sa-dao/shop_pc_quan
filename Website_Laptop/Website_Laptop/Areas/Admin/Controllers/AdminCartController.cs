@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Website_Laptop.Models;
+using Website_Laptop.Models.Authentication;
 
 namespace Website_Laptop.Areas.Admin.Controllers
 {
@@ -10,6 +11,7 @@ namespace Website_Laptop.Areas.Admin.Controllers
     public class AdminCartController : Controller
     {
         private readonly QliBanPcContext db = new QliBanPcContext();
+        [Authentication]
         [Route("")]
         [Route("index")]
         public IActionResult Index()
@@ -17,6 +19,7 @@ namespace Website_Laptop.Areas.Admin.Controllers
             var donHang = db.DonhangPcs.OrderBy(x => x.Id).ToList();
             return View(donHang);
         }
+        [Authentication]
         [Route("")]
         [Route("viewcart")]
         public IActionResult ViewCart(string maDonhang)
@@ -27,10 +30,24 @@ namespace Website_Laptop.Areas.Admin.Controllers
                 .ToList();
             return View(donHangDetails);
         }
-        public IActionResult Delete()
+        [Authentication]
+        [Route("")]
+        [Route("xoadonhang")]
+        public IActionResult DeleteDonHang(string maDonHang)
         {
-            var donHang = db.DonhangPcs.OrderBy(x => x.Id).ToList();
-            return View(donHang);
+            var donHang = db.DonhangPcs.Where(x => x.MaDonHang == maDonHang);
+            var detailDonHang = db.DetailDonhangPcs.Where(x=>x.MaDonHang == maDonHang).ToList();
+            if(donHang == null)
+            {
+                return NotFound();
+            }
+            if(detailDonHang != null && detailDonHang.Any())
+            {
+                db.RemoveRange(detailDonHang);
+            }
+            db.RemoveRange(donHang);
+            db.SaveChanges();
+            return RedirectToAction("Index","AdminCart");
         }
     }
 }

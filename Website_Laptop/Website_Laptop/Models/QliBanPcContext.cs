@@ -37,7 +37,7 @@ public partial class QliBanPcContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-BI83N0Q;Initial Catalog=QliBanPc;Persist Security Info=True;User ID=sa;Password=quan154;Trust Server Certificate=True");
+        => optionsBuilder.UseSqlServer("Data Source=SQL5112.site4now.net;Initial Catalog=db_aa3e34_login;User Id=db_aa3e34_login_admin;Password=Vkiuoi123");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -116,15 +116,14 @@ public partial class QliBanPcContext : DbContext
 
         modelBuilder.Entity<PcAnhSp>(entity =>
         {
-            entity.HasKey(e => e.MaAnhSp).HasName("PK__pcAnhSP__B994756047D2E4A3");
+            entity.HasKey(e => e.MaAnhSp).HasName("PK__pcAnhSP__B9947680C7516C41");
 
             entity.ToTable("pcAnhSP");
 
             entity.Property(e => e.MaAnhSp)
                 .HasMaxLength(20)
                 .IsUnicode(false)
-                .IsFixedLength()
-                .HasColumnName("MaAnhSP");
+                .IsFixedLength();
             entity.Property(e => e.MaSp)
                 .HasMaxLength(20)
                 .IsUnicode(false)
@@ -137,7 +136,6 @@ public partial class QliBanPcContext : DbContext
 
             entity.HasOne(d => d.MaSpNavigation).WithMany(p => p.PcAnhSps)
                 .HasForeignKey(d => d.MaSp)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ASP_DMSP");
         });
 

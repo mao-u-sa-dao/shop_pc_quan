@@ -2,36 +2,34 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "EditLoai";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>EditLoai</h1>
+<h1>Sửa loại</h1>
 
-<h4>PcLoaiSp</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="EditLoai">
+        <form>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="MaLoai" />
             <div class="form-group">
-                <label for="TenLoai">Tên Loai:</label>
+                <label for="TenLoai">Tên Loại:</label>
                 <input type="text" class="form-control" id="TenLoai" name="TenLoai" value="@Model.TenLoai" />
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" onclick="editLoai()" class="btn btn-primary" />
-            </div>
+            
         </form>
+        <div class="form-group">
+            <input type="submit" value="Lưu" onclick="EditLoai()" class="btn btn-primary" />
+        </div>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="LoaiSanPham">Trở lại danh sách</a>
 </div>
-
 <script>
-    function editLoai() {
-        console.log($("#TenLoai").val());
+    function EditLoai() {
         var updateLoai = {
             MaLoai: "@Model.MaLoai",
             TenLoai: $("#TenLoai").val()
@@ -41,8 +39,29 @@
             url: "/api/categoryapi/@Model.MaLoai",
             contentType: "application/json",
             data: JSON.stringify(updateLoai),
+            success: function (success) {
+                // Hiển thị thông báo thành công bằng SweetAlert2
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thành Công!',
+                    text: 'Loại sản phẩm đã được chỉnh sửa thành công.',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Chuyển hướng đến trang cụ thể
+                        window.location.href = '/Admin/LoaiSanPham';
+                    }
+                });
+            },
             error: function (error) {
-                console.error("Loi khi sua san pham:", error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi',
+                    text: 'Lỗi khi chỉnh sửa.',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '/Admin/LoaiSanPham';
+                    }
+                });
             }
         });
     }

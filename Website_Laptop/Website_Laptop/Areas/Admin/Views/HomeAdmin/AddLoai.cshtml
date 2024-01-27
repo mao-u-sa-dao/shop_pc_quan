@@ -1,18 +1,17 @@
 ﻿@{
     ViewData["Title"] = "ThemLoaiSanPham";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 @model Website_Laptop.Models.PcLoaiSp;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <!-- Nội dung trang -->
 
-<h2>Edit Product</h2>
-<p id="consol"></p>
+<h2>Thêm loại sản phẩm</h2>
 
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AddLoai">
+        <form>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="MaLoai" class="control-label"></label>
@@ -24,38 +23,46 @@
                 <input asp-for="TenLoai" id="TenLoai" class="form-control" />
                 <span asp-validation-for="TenLoai" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <button type="submit" onclick="addLoai()" class="btn btn-primary">Create</button>
-            </div>
         </form>
+        <div class="form-group">
+            <button onclick="AddLoai()" class="btn btn-primary">Thêm</button>
+        </div>
     </div>
 </div>
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
 
-    function addLoai() {
+    function AddLoai() {
         var maLoai = document.getElementById('MaLoai').value;
         var tenLoai = document.getElementById('TenLoai').value;
-
 
         axios.post('/api/CategoryApi', {
             maLoai: maLoai,
             tenLoai: tenLoai,
-
         })
             .then(response => {
-
-                console.log('Loại sản phẩm được thêm thành công');
-
+                // Hiển thị thông báo thành công bằng SweetAlert2
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thêm thành công',
+                    text: 'Loại sản phẩm đã được thêm thành công.',
+                }).then(() => {
+                    // Chuyển hướng sau khi nhấn OK trong thông báo
+                    window.location.href = '/Admin/LoaiSanPham';
+                });
             })
             .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi',
+                    text: 'Trùng mã loại sản phẩm!',
+                });
                 console.error('Lỗi khi thêm loại sản phẩm:', error.response.data);
             });
     }
 
 
+
 </script>
+
 

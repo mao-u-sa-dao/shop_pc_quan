@@ -13,13 +13,13 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large"
-                             src="@Url.Content("../img/"+@Model.danhMucSp.AnhDaiDien)" alt="">
+                             src="@Url.Content("../img/product/"+@Model.danhMucSp.AnhDaiDien)" alt="">
                     </div>
                     <div class="product__details__pic__slider owl-carousel">
                         @foreach (var image in Model.anhSp)
                         {
-                            <img data-imgbigurl="@Url.Content("../img/" + image.TenFileAnh)"
-                                 src="@Url.Content("../img/"+image.TenFileAnh)" alt="">
+                            <img data-imgbigurl="@Url.Content("../img/product/details" + image.TenFileAnh)"
+                                 src="@Url.Content("../img/product/details"+image.TenFileAnh)" alt="">
                         }
                     </div>
                 </div>

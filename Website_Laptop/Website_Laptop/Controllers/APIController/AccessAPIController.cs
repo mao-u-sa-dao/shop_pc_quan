@@ -10,6 +10,7 @@ namespace Website_Laptop.Controllers.APIController
     public class AccessAPIController : ControllerBase
     {
         private readonly QliBanPcContext db = new QliBanPcContext();
+
         [HttpPost]
         public async Task<ActionResult<Userpc>> Register(Userpc userpc)
         {
@@ -21,7 +22,7 @@ namespace Website_Laptop.Controllers.APIController
                     AccountNameUser = userpc.AccountNameUser,
                     PassWordUser = userpc.PassWordUser,
                     GmailUser = userpc.GmailUser,
-                    LoaiUser = userpc.LoaiUser,
+                    LoaiUser = 1,
                 };
                 db.PcUsers.Add(user);
                 await db.SaveChangesAsync();

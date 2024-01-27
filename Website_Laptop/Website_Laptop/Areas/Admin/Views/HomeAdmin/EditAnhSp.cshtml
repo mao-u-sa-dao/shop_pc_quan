@@ -1,0 +1,76 @@
+﻿@model Website_Laptop.Models.PcAnhSp
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "EditAnhSp";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Sửa ảnh sản phẩm</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditAnhSp" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" id="MaAnhSp" asp-for="MaAnhSp" />
+            <div class="form-group">
+                <label asp-for="MaSp" class="control-label"></label>
+                <input asp-for="MaSp" readonly id="MaSp" class="form-control" />
+                <span asp-validation-for="MaSp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenFileAnh">Chọn hình ảnh:</label>
+                <input type="file" id="TenFileAnh" name="TenFileAnh" onchange="FileAnh()" class="form-control-file" />
+                <div id="fileNameDisplay">@Model.TenFileAnh</div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ViTri" class="control-label"></label>
+                <input asp-for="ViTri" id="ViTri" class="form-control" />
+                <span asp-validation-for="ViTri" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button onclick="saveChanges()" type="submit" class="btn btn-primary">Lưu</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="AnhSanPham">Back to List</a>
+</div>
+<script>
+    function FileAnh() {
+        var fileName = '';
+        //Lấy Tên đường dẫn file
+        var input = document.getElementById('TenFileAnh');
+        var fileNameDisplay = document.getElementById('fileNameDisplay');
+        // kiểm tra xem đã chọn file nào chưa
+        if (input.files.length > 0) {
+            // Lấy tên đầy đủ của tệp tin đầu tiên
+            fileName = input.files[0].name;
+            fileNameDisplay.innerText = fileName;
+        } else {
+            fileNameDisplay.innerText = 'Không có file được chọn';
+        }
+    }
+    function saveChanges() {
+        var updateAnhSp = {
+            MaAnhSp: "@Model.MaAnhSp",
+            MaSp: $("#MaSp").val(),
+            TenFileAnh: $("#fileNameDisplay").text(),
+            ViTri: $("#ViTri").val()
+        };
+
+        $.ajax({
+            type: "PUT",
+            url: "/api/AnhSanPhamApi/@Model.MaAnhSp",
+            contentType: "application/json",
+            data: JSON.stringify(updateAnhSp),
+            error: function (error) {
+                console.error("Error updating product:", error);
+            }
+        });
+    }
+</script>
+
+

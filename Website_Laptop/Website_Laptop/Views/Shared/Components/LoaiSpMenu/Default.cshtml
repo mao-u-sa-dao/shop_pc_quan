@@ -8,7 +8,8 @@
         <ul>
             @foreach (var item in Model)
             {
-                var getUrl = "https://localhost:7230/api/productapi/" + item.MaLoai;
+                @* var getUrl = "https://localhost:7230/api/productapi/" + item.MaLoai; *@
+                var getUrl = "http://maousadao-001-site1.btempurl.com/api/productapi/" + item.MaLoai;
                 <li><a style="cursor:pointer" onclick="showProductByCategory('@getUrl')">@item.TenLoai</a></li>
                 @*     <li><a asp-controller="Home" asp-action="ProductToLoai" asp-route-maloai="@item.MaLoai">@item.TenLoai</a></li> *@
             }
@@ -29,7 +30,7 @@
                     str += '<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat" >';
                     str += ' <div class="featured__item" >';
                     str += '<div class="featured__item__pic set-bg" data - setbg=\"';
-                    var linkImg = "../img/" + $.trim(pc.anhDaiDien);
+                    var linkImg = "../img/product/" + $.trim(pc.anhDaiDien);
                     str += linkImg;
                     str += '\" style = "background-image: url(&quot;';
                     str += linkImg;

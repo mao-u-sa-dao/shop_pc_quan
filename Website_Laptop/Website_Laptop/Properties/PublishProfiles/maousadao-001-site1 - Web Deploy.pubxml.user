@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2kPRSiz09ECegWXzEqql1AAAAAACAAAAAAAQZgAAAAEAACAAAADvxDC4NV2UY3FCbCpWR9Vzp0HH6vDQhRasVF/ZWToQZQAAAAAOgAAAAAIAACAAAACsu9vH5qokfFRCKwRhfXKvQFOrbcqBXj7aSy5ZY7Z6gyAAAACpOzA4luKd4PoaFZib8K6Cz4YudBYUqHbBsQRXqODMXUAAAAA0BWayqpoL8jkkv61jMBxAP3g7WPQzTYaPdHZQfTjNx9HdZoszybeMXGwvDrPwYiG/t4pcXcQap7cj6Bu+aLBa</EncryptedPassword>
+    <History>False|2024-01-10T05:26:40.6375089Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="Website_Laptop.Models.QliBanPcContext">
+      <Value>
+      </Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

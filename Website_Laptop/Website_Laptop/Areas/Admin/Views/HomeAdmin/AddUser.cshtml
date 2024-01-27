@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "ThemUser";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@model Website_Laptop.Models.PcUser;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!-- Nội dung trang -->
+
+<h2>Thêm User</h2>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AccountNameUser" class="control-label"></label>
+                <input asp-for="AccountNameUser" id="AccountNameUser" class="form-control" />
+                <span asp-validation-for="AccountNameUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GmailUser" class="control-label"></label>
+                <input asp-for="GmailUser" id="GmailUser" class="form-control" />
+                <span asp-validation-for="GmailUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassWordUser" class="control-label"></label>
+                <input asp-for="PassWordUser" id="PassWordUser" class="form-control" />
+                <span asp-validation-for="PassWordUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LoaiUser" class="control-label"></label>
+                <input asp-for="LoaiUser" id="LoaiUser" class="form-control" />
+                <span asp-validation-for="LoaiUser" class="text-danger"></span>
+            </div>
+        </form>
+        <div class="form-group">
+            <button onclick="AddUser()" class="btn btn-primary">Thêm</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function generateRandomString(length) {
+        let result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * charactersLength);
+            result += characters.charAt(randomIndex);
+        }
+
+        return result;
+    }
+    function AddUser() {
+        var maUser = generateRandomString(15);
+        var userName = document.getElementById('AccountNameUser').value;
+        var gmail = document.getElementById('GmailUser').value;
+        var passWord = document.getElementById('PassWordUser').value;
+        var loaiUser = document.getElementById('LoaiUser').value;
+
+        axios.post('/api/UserApi', {
+            maUser: maUser,
+            accountNameUser: userName,
+            passWordUser: passWord,
+            gmailUser: gmail,
+            loaiUser: loaiUser,
+
+        })
+            .then(response => {
+
+                // Hiển thị thông báo thành công bằng SweetAlert2
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thêm thành công',
+                    text: 'Loại sản phẩm đã được thêm thành công.',
+                }).then(() => {
+                    // Chuyển hướng sau khi nhấn OK trong thông báo
+                    window.location.href = '/Admin/QuanLyUser';
+                });
+
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi',
+                    text: '!',
+                });
+            });
+    }
+
+
+</script>

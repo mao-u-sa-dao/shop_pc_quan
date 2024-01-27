@@ -1,0 +1,69 @@
+﻿@model Website_Laptop.Models.PcChatLieuSp
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "EditChatLieu";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Sửa chất liệu</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" id="MaChatLieu" asp-for="MaChatLieu" />
+            <div class="form-group">
+                <label asp-for="TenChatLieu"  class="control-label"></label>
+                <input asp-for="TenChatLieu" id="TenChatLieu" class="form-control" />
+                <span asp-validation-for="TenChatLieu" class="text-danger"></span>
+            </div>
+
+        </form>
+        <div class="form-group">
+            <input type="submit" value="Lưu" onclick="EditChatLieu()" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ChatLieuSanPham">Trở lại danh sách</a>
+</div>
+<script>
+    function EditChatLieu() {
+        var updateChatLieu = {
+            MaChatLieu: "@Model.MaChatLieu",
+            TenChatLieu: $("#TenChatLieu").val()
+        };
+        $.ajax({
+            type: "PUT",
+            url: "/api/MaterialApi/@Model.MaChatLieu",
+            contentType: "application/json",
+            data: JSON.stringify(updateChatLieu),
+            success: function (success) {
+                // Hiển thị thông báo thành công bằng SweetAlert2
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thành công!',
+                    text: 'Chất liệu sản phẩm đã được chỉnh sửa thành công.',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Chuyển hướng đến trang cụ thể
+                        window.location.href = '/Admin/ChatLieuSanPham';
+                    }
+                });
+            },
+            error: function (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi',
+                    text: 'Lỗi khi chỉnh sửa.',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '/Admin/LoaiSanPham';
+                    }
+                });
+            }
+        });
+    }
+</script>

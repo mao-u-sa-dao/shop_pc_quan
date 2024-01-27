@@ -2,6 +2,9 @@
 @using Website_Laptop.Models;
 @using Website_Laptop.Models.ShopingCart.ViewModels
 @using System.Web;
+@using System.Text.Json;
+@using Website_Laptop.Repository;
+@using Website_Laptop.Models.ShopingCart;
 @inject IHttpContextAccessor HttpContextAccessor;
 @inject PcUser MyModel;
 <!DOCTYPE html>
@@ -33,8 +36,10 @@
     @{
         var user = HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser");
         var loai = HttpContextAccessor.HttpContext.Session.GetInt32("LoaiUser");
-        CartItemViewModel ModelCart = ViewData["ModelCart"] as CartItemViewModel;
+        var maUser = HttpContextAccessor.HttpContext.Session.GetString("MaUser");
+        var soLuong = HttpContextAccessor.HttpContext.GetCartItemCount();
     }
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -51,22 +56,31 @@
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <li>
                     <a asp-controller="Cart" asp-action="Index">
-                        <i class="fa fa-shopping-bag"></i> @if (ModelCart != null && ModelCart.Items != null && ModelCart.Items.Count > 0)
+                        <i class="fa fa-shopping-bag"></i> @if (soLuong != null)
                         {
                             <span>
-                                @ModelCart.Items.Count
+                                @soLuong
                             </span>
                         }
-                        else
+                        @if (soLuong == null)
                         {
                             <span>
                                 0
                             </span>
                         }
+
                     </a>
                 </li>
             </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            <div class="header__cart__price">
+
+                @if (maUser != null)
+                {
+                    <span>
+                        <a asp-controller="Home" asp-action="GioHang" asp-route-maUser="@maUser">Đơn Hàng</a>
+                    </span>
+                }
+            </div>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -79,35 +93,35 @@
                 </ul>
             </div>
             <div class="header__top__right__language">
-            <div class="header__top__right__auth">
-@*                 @{
+                <div class="header__top__right__auth">
+                    @*                 @{
                     if (HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser") != null)
                     {
-                        <div><a asp-controller="Home" asp-action="UserInfor" asp-route-AccountNameUser="@user"><h3>Xin chao: @user</h3></a></div>
+                    <div><a asp-controller="Home" asp-action="UserInfor" asp-route-AccountNameUser="@user"><h3>Xin chao: @user</h3></a></div>
                     }
-                } *@
-                @{
-                    if (HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser") != null)
-                    {
+                    } *@
+                    @{
+                        if (HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser") != null)
+                        {
                             <i class="fa fa-user"></i>
                             <span class="arrow_carrot-down"></span>
                             <ul>
                                 <li><a asp-controller="Home" asp-action="UserInfor" asp-route-AccountNameUser="@user">Xin chao: @user</a></li>
                                 <li><a asp-controller="Access" asp-action="Logout"><i class="fa fa-user"></i> Logout</a></li>
                             </ul>
-                        
-                    }
-                }
-                @{
-                    if (HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser") == null)
-                    {
-                        <a asp-controller="Access" asp-action="Login"><i class="fa fa-user"></i> Login</a>
 
+                        }
                     }
-                }
-                
-                @* <a href="#"><i class="fa fa-user"></i> Login</a> *@
-            </div>
+                    @{
+                        if (HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser") == null)
+                        {
+                            <a asp-controller="Access" asp-action="Login"><i class="fa fa-user"></i> Login</a>
+
+                        }
+                    }
+
+                    @* <a href="#"><i class="fa fa-user"></i> Login</a> *@
+                </div>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -136,7 +150,7 @@
         </div>
         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                <li><i class="fa fa-envelope"></i> quan210154@hnet.edu.vn</li>
                 <li>Free Shipping for all Order of $99</li>
             </ul>
         </div>
@@ -150,7 +164,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                                <li><i class="fa fa-envelope"></i> quan210154@hnet.edu.vn</li>
                                 <li>Free Shipping for all Order of $99</li>
                             </ul>
                         </div>
@@ -173,7 +187,7 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__language">
-                            <div class="header__top__right__auth">
+                                <div class="header__top__right__auth">
                                     @{
                                         if (HttpContextAccessor.HttpContext.Session.GetString("AccountNameUser") != null)
                                         {
@@ -193,8 +207,8 @@
 
                                         }
                                     }
-                                @* <a href="#"><i class="fa fa-user"></i> Login</a> *@
-                            </div>
+                                    @* <a href="#"><i class="fa fa-user"></i> Login</a> *@
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -233,13 +247,13 @@
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li>
                                 <a asp-controller="Cart" asp-action="Index">
-                                    <i class="fa fa-shopping-bag"></i> @if (ModelCart != null && ModelCart.Items != null && ModelCart.Items.Count > 0)
+                                    <i class="fa fa-shopping-bag"></i> @if (soLuong != null)
                                     {
                                         <span>
-                                            @ModelCart.Items.Count
+                                            @soLuong
                                         </span>
                                     }
-                                    else
+                                    @if (soLuong == null)
                                     {
                                         <span>
                                             0
@@ -248,7 +262,14 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <div class="header__cart__price">
+                            @if (maUser != null)
+                            {
+                                <span>
+                                    <a asp-controller="Home" asp-action="GioHang" asp-route-maUser="@maUser">Đơn Hàng</a>
+                                </span>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
@@ -281,7 +302,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
+                                <h5>+84 976169368</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>

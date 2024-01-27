@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Website_Laptop.Models.PcQuocGiaSx>
-
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "QuocGia";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h1>QuocGia</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="AddQuocGia">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -26,11 +26,47 @@
                 @Html.DisplayFor(modelItem => item.TenQuocGiaSx)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.MaQuocGiaSx">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MaQuocGiaSx">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MaQuocGiaSx">Delete</a>
+                <a asp-action="EditQuocGia" asp-route-id="@item.MaQuocGiaSx">Edit</a> |
+                <a asp-action="DetailsQuocGia" asp-route-id="@item.MaQuocGiaSx">Details</a> |
+                <button onclick="DeleteQuocGia('@item.MaQuocGiaSx')">Delete</button>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<script>
+
+    function DeleteQuocGia(maQuocGia) {
+        if (confirm("Bạn có chắc muốn xóa quốc gia này không?")) {
+            $.ajax({
+                type: "DELETE",
+                url: "/api/QuocGiaApi/" + maQuocGia,
+                success: function (success) {
+                    // Hiển thị thông báo thành công bằng SweetAlert2
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Xóa thành công',
+                        text: 'Quốc gia đã được xóa thành công.',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Chuyển hướng đến trang cụ thể
+                            window.location.href = '/Admin/QuocGia';
+                        }
+                    });
+                },
+                error: function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Lỗi',
+                        text: 'Không thể xóa quốc gia này khi đang liên quan tới sản phẩm',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '/Admin/QuocGia';
+                        }
+                    });
+                }
+            });
+        }
+    }
+</script>

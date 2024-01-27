@@ -1,48 +1,39 @@
-﻿@model IEnumerable<Website_Laptop.Models.PcAnhSp>
-
+﻿@model IEnumerable<Website_Laptop.Models.PcDanhMucSp>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "AnhSanPham";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>AnhSanPham</h1>
+<h1>Ảnh sản phẩm</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                Tên File Ảnh
+                Tên sản phẩm
             </th>
             <th>
-                Vị trí
-            </th>
-            <th>
-                Mã Sản Phẩm
+                Ảnh đại diện
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenFileAnh)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ViTri)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaSp)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.MaAnhSp">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MaAnhSp">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MaAnhSp">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSp)
+                </td>
+                <td>
+                    <img class="rounded-circle" style="width: 40px; height: 40px;" src="~/img/product/@item.AnhDaiDien" alt="">
+                </td>
+                <td>
+                    <a asp-action="DetailsAnhSp" asp-route-maSp="@item.MaSp">Chi tiết</a> |
+                    <a asp-action="AddAnhSp" asp-route-maSp="@item.MaSp">Thêm ảnh</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

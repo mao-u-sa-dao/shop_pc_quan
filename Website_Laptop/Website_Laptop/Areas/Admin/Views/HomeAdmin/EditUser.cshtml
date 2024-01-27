@@ -1,0 +1,88 @@
+﻿@model Website_Laptop.Models.PcUser
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "EditUser";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>EditUser</h1>
+
+<h4>PcUser</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditUser">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaUser" />
+            <div class="form-group">
+                <label asp-for="AccountNameUser" class="control-label"></label>
+                <input asp-for="AccountNameUser" id="AccountNameUser" class="form-control" />
+                <span asp-validation-for="AccountNameUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassWordUser" class="control-label"></label>
+                <input asp-for="PassWordUser" id="PassWordUser" class="form-control" />
+                <span asp-validation-for="PassWordUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GmailUser" class="control-label"></label>
+                <input asp-for="GmailUser" id="GmailUser" class="form-control" />
+                <span asp-validation-for="GmailUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LoaiUser" class="control-label"></label>
+                <input asp-for="LoaiUser" id="LoaiUser" class="form-control" />
+                <span asp-validation-for="LoaiUser" class="text-danger"></span>
+            </div>
+        </form>
+        <div class="form-group">
+            <button onclick="EditUser()" class="btn btn-primary">Lưu</button>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="QuanLyUser">Back to List</a>
+</div>
+<script>
+    function EditUser() {
+        var updateQuocGia = {
+            MaUser: "@Model.MaUser",
+            AccountNameUser: $("#AccountNameUser").val(),
+            PassWordUser: $("#PassWordUser").val(),
+            GmailUser: $("#GmailUser").val(),
+            LoaiUser: $("#LoaiUser").val()
+        };
+        $.ajax({
+            type: "PUT",
+            url: "/api/UserApi/@Model.MaUser",
+            contentType: "application/json",
+            data: JSON.stringify(updateQuocGia),
+            success: function (success) {
+                // Hiển thị thông báo thành công bằng SweetAlert2
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thành công!',
+                    text: 'User đã được chỉnh sửa thành công.',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Chuyển hướng đến trang cụ thể
+                        window.location.href = '/Admin/QuanLyUser';
+                    }
+                });
+            },
+            error: function (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi',
+                    text: 'Lỗi khi chỉnh sửa.',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '/Admin/QuanLyUser';
+                    }
+                });
+            }
+        });
+    }
+</script>
+

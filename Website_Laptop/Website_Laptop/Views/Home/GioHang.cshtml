@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Website_Laptop.Models.DonhangPc>
+
+@{
+    ViewData["Title"] = "GioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Giỏ hàng</h1>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ngày đặt
+            </th>
+            <th>
+                Trạng thái đơn hàng
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                @if (item.StatusDonhang == 1)
+                {
+                    <td>Chưa xử lí!</td>
+                }
+                else
+                {
+                    <td>Đã duyệt!</td>
+                }
+                <td>
+                    <a asp-action="DetailsGioHang" asp-route-maDonHang="@item.MaDonHang">Chi tiết đơn hàng</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

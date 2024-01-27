@@ -2,14 +2,15 @@
 @using X.PagedList.Mvc.Core;
 @model X.PagedList.IPagedList<Website_Laptop.Models.PcDanhMucSp>
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 @{
     ViewData["Title"] = "DanhMucSanPham";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Danh Muc San Pham</h2>
+<h2>Danh sách sản phẩm</h2>
 <p>
-    <a asp-action="ThemSanPhamMoi">Create New</a>
+    <a asp-action="ThemSanPhamMoi">Thêm sản phẩm mới</a>
 </p>
 <p>@TempData["Message"]</p>
 <table class="table">
@@ -20,6 +21,9 @@
             </th>
             <th>
                 Cân Nặng
+            </th>
+            <th>
+                Ảnh đại diện
             </th>
             <th>
                 Giá Sản Phẩm
@@ -38,12 +42,15 @@
                     @Html.DisplayFor(modelItem => item.CanNang)
                 </td>
                 <td>
+                    <img class="rounded-circle" style="width: 40px; height: 40px;" src="~/img/product/@item.AnhDaiDien" alt="">
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.GiaSp)
                 </td>
                 <td>
                     <a asp-action="UpdateProduct" asp-route-maSanPham="@item.MaSp">Edit</a> |
                     <a asp-action="ThongTinSanPham" asp-route-maSanPham="@item.MaSp">Details</a> |
-                    <a asp-action="DeleteProduct" onclick="DeleteProduct('@item.MaSp')" asp-route-maSanPham="@item.MaSp">Delete</a>
+                    <button onclick="DeleteProduct('@item.MaSp')">Delete</button>
                 </td>
             </tr>
         }
@@ -59,8 +66,29 @@
             $.ajax({
                 type: "DELETE",
                 url: "/api/AdminProductApi/" + maSp,
+                success: function (success) {
+                    // Hiển thị thông báo thành công bằng SweetAlert2
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Xóa thành công!',
+                        text: 'Sản phẩm đã được xóa thành công.',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Chuyển hướng đến trang cụ thể
+                            window.location.href = '/Admin/DanhMucSanPham';
+                        }
+                    });
+                },
                 error: function (error) {
-                    console.error("Error updating product:", error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Lỗi',
+                        text: 'Không thể xóa sản phẩm này khi đang liên quan tới đơn hàng!',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '/Admin/DanhMucSanPham';
+                        }
+                    });
                 }
             });
         }

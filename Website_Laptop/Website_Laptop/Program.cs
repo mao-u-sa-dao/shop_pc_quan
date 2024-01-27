@@ -16,7 +16,7 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddDbContext<QliBanPcContext>(x =>
-x.UseSqlServer(builder.Configuration.GetConnectionString("QliBanPcContext")));
+x.UseSqlServer(builder.Configuration.GetConnectionString("myconnectionstring")));
 
 builder.Services.AddScoped<ILoaiSpRepository, LoaiSpRepository>();
 builder.Services.AddScoped<PcUser>();

@@ -48,7 +48,10 @@ namespace Website_Laptop.Controllers.Access
             return View();
         }
         [HttpPost]
-        public IActionResult Register(PcUser pcUser) => RedirectToAction("Login", "Access");
+        public IActionResult Register(PcUser pcUser)
+        {
+            return RedirectToAction("Login", "Access");
+        }
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();

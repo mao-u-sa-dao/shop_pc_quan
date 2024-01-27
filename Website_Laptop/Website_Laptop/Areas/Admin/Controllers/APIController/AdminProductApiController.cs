@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Website_Laptop.Models;
 using System.Linq;
+using Website_Laptop.Models.Authentication;
 
 namespace Website_Laptop.Areas.Admin.Controllers.APIController
 {
@@ -11,6 +12,7 @@ namespace Website_Laptop.Areas.Admin.Controllers.APIController
     public class AdminProductApiController : ControllerBase
     {
         private readonly QliBanPcContext db = new QliBanPcContext();
+        [Authentication]
         [HttpGet("{id}")]
         public IActionResult GetProductById(string id)
         {
@@ -21,6 +23,7 @@ namespace Website_Laptop.Areas.Admin.Controllers.APIController
             }
             return Ok(sanPham);
         }
+        [Authentication]
         [HttpPost]
         public async Task<ActionResult<PcDanhMucSp>> AddProduct(PcDanhMucSp product)
         {
@@ -32,8 +35,9 @@ namespace Website_Laptop.Areas.Admin.Controllers.APIController
             }
             return BadRequest(ModelState);
         }
+        [Authentication]
         [HttpPut("{id}")]
-        public async Task<ActionResult<PcDanhMucSp>> UpdateProductApi(string id,[FromBody] PcDanhMucSp product)
+        public async Task<ActionResult<PcDanhMucSp>> UpdateProductApi([FromBody] PcDanhMucSp product, string id)
         {
             var sanPham = db.PcDanhMucSps.SingleOrDefault(x => x.MaSp == id);
             if (sanPham == null)
@@ -53,14 +57,19 @@ namespace Website_Laptop.Areas.Admin.Controllers.APIController
             db.Update(sanPham);
             await db.SaveChangesAsync();
             return Ok();
-            
+
         }
+        [Authentication]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSp(string id)
         {
+
             var sanPham = db.PcDanhMucSps.FirstOrDefault(x => x.MaSp == id);
-            var anhSanPham = db.PcAnhSps.Where(x => x.MaSp == id);
-            if(anhSanPham!=null && anhSanPham.Any()) db.RemoveRange(anhSanPham);
+            var anhSanPham = db.PcAnhSps.Where(x => x.MaSp == id).ToList();
+            if (anhSanPham != null && anhSanPham.Any())
+            {
+                db.RemoveRange(anhSanPham);
+            }
             db.Remove(sanPham);
             await db.SaveChangesAsync();
             return Ok();

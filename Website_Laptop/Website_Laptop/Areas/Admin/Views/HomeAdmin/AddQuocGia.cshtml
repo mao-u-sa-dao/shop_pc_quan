@@ -1,0 +1,70 @@
+﻿@model Website_Laptop.Models.PcQuocGiaSx
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "AddQuocGia";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Thêm quốc gia</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaQuocGiaSx" class="control-label"></label>
+                <input asp-for="MaQuocGiaSx" id="MaQuocGiaSx" class="form-control" />
+                <span asp-validation-for="MaQuocGiaSx" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenQuocGiaSx" class="control-label"></label>
+                <input asp-for="TenQuocGiaSx" id="TenQuocGiaSx" class="form-control" />
+                <span asp-validation-for="TenQuocGiaSx" class="text-danger"></span>
+            </div>
+        </form>
+        <div class="form-group">
+            <input onclick="AddQuocGia()" value="Create" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="QuocGia">Back to List</a>
+</div>
+
+<script>
+
+    function AddQuocGia() {
+        var maQuocGia = document.getElementById('MaQuocGiaSx').value;
+        var tenQuocGia = document.getElementById('TenQuocGiaSx').value;
+
+
+        axios.post('/api/QuocGiaApi', {
+            maQuocGiaSx: maQuocGia,
+            tenQuocGiaSx: tenQuocGia,
+
+        })
+            .then(response => {
+                // Hiển thị thông báo thành công bằng SweetAlert2
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thêm thành công',
+                    text: 'Quốc gia đã được thêm thành công.',
+                }).then(() => {
+                    // Chuyển hướng sau khi nhấn OK trong thông báo
+                    window.location.href = '/Admin/QuocGia';
+                });
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi',
+                    text: 'Trùng mã quốc gia!',
+                });
+            });
+    }
+
+
+</script>
+
